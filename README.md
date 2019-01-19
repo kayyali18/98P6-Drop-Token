@@ -27,3 +27,9 @@ Jump into your new local copy of the 98P6 Drop Token Game:
 Make sure to install dependencies by running:
 
     npm install
+
+### Play it
+
+Now that your game is setup just type
+
+    npm run game
