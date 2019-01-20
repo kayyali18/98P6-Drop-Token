@@ -15,11 +15,36 @@ const init = () => {
   );
 };
 
+const takeInput = () => {
+  const questions = [
+    {
+      name: "INPUT",
+      type: "input",
+      message: " ",
+      filter: function(val) {
+        return val.toUpperCase().split(" ");
+      }
+    }
+  ];
+
+  return inquirer.prompt(questions);
+};
+
+const checkInput = input => {
+  const validInputs = { GET: "GET", PUT: "PUT", BOARD: "BOARD" };
+  return input[0] in validInputs;
+};
+
 const run = async () => {
   //show intro
   init();
   //take input
+  const answers = await takeInput();
+  const { INPUT } = answers;
   // check input --> this function calls appropriate functions
+  console.log(INPUT);
+  let x = checkInput(INPUT);
+  console.log(x);
 };
 
 let questions = [
