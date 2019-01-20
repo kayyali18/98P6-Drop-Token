@@ -3,6 +3,25 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
+const init = () => {
+  console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+  console.log(chalk.green("\n\n-------- CONTROLS ----------"));
+  console.log(chalk.green(`\nPUT [column]: Puts a piece to the column`));
+  console.log(
+    chalk.green(`\nGET: List of columns that have been succesfully PUT to`)
+  );
+  console.log(
+    chalk.green(`\nBoard: Displays the current state of the board\n`)
+  );
+};
+
+const run = async () => {
+  //show intro
+  init();
+  //take input
+  // check input --> this function calls appropriate functions
+};
+
 let questions = [
   {
     type: "input",
@@ -30,17 +49,15 @@ let questions = [
   }
 ];
 
-function ask() {
-  if (newGame) {
-    inquirer.prompt(questions).then(answers => {
-      if (answers.newGame) {
-        ask();
-      } else {
-        console.log(answers);
-        newGame = false;
-      }
-    });
-  }
-}
+// function ask() {
+//   inquirer.prompt(questions).then(answers => {
+//     if (answers.newGame) {
+//       ask();
+//     } else {
+//       console.log(answers);
+//       newGame = false;
+//     }
+//   });
+// }
 
-ask();
+run();
