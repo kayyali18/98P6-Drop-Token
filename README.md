@@ -30,6 +30,6 @@ Make sure to install dependencies by running:
 
 ### Play it
 
-Now that your game is setup just type
+Now that your game is setup just type:
 
     npm run game
