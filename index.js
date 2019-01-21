@@ -3,6 +3,10 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
+/**
+ * This function greets the user
+ */
+
 const init = () => {
   console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
   console.log(chalk.green("\n\n-------- CONTROLS ----------"));
@@ -14,6 +18,13 @@ const init = () => {
     chalk.green(`\nBoard: Displays the current state of the board\n`)
   );
 };
+
+/**
+ * This function asks the user to input command
+ *
+ *
+ * @return {function} An inquiry promise that resolves to the answers object
+ */
 
 const takeInput = () => {
   const questions = [
@@ -30,10 +41,28 @@ const takeInput = () => {
   return inquirer.prompt(questions);
 };
 
+/**
+ * This function validates userInput
+ *
+ * @param {array} input
+ *
+ * @return {boolean} A boolean describing input validity
+ */
+
 const checkInput = input => {
   const validInputs = { GET: "GET", PUT: "PUT", BOARD: "BOARD" };
   return input[0] in validInputs;
 };
+
+/**
+ * This function handles user input if valid
+ *
+ * @param {array} input The array containing the user input separated by space
+ *
+ * @return {function} An inquiry promise that resolves to the answers object
+ */
+
+const handleInput = input => {};
 
 const run = async () => {
   //show intro
@@ -43,8 +72,9 @@ const run = async () => {
   const { INPUT } = answers;
   // check input --> this function calls appropriate functions
   console.log(INPUT);
-  let x = checkInput(INPUT);
-  console.log(x);
+  const valid = checkInput(INPUT);
+  if (valid) handleInput(INPUT);
+  else errorMsg(INPUT);
 };
 
 let questions = [
@@ -73,16 +103,5 @@ let questions = [
     }
   }
 ];
-
-// function ask() {
-//   inquirer.prompt(questions).then(answers => {
-//     if (answers.newGame) {
-//       ask();
-//     } else {
-//       console.log(answers);
-//       newGame = false;
-//     }
-//   });
-// }
 
 run();
