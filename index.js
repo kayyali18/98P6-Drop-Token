@@ -6,13 +6,15 @@ const chalk = require("chalk");
 const gameBoard = require("./lib/Board");
 
 const Board = new gameBoard();
+let newGame = true;
 
 /**
  * This function greets the user
  */
 
 const init = () => {
-  console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+  if (newGame) console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+  newGame = false;
   console.log(chalk.green("\n\n-------- CONTROLS ----------"));
   console.log(chalk.green(`\nPUT [column]: Puts a piece to the column`));
   console.log(
@@ -68,8 +70,14 @@ const checkInput = input => {
 
 const handleInput = input => {
   if (input[0] == "PUT") Board.put(input[1]);
-  if (input[0] == "BOARD") Board.display();
+  else if (input[0] == "BOARD") Board.display();
   else Board.get();
+  Board.switchPlayer();
+};
+
+const errorMsg = input => {
+  console.log(`ERROR: You entered ${input[0]}\n`);
+  run();
 };
 
 const run = async () => {
@@ -86,6 +94,8 @@ const run = async () => {
   // Handle input
   if (valid) handleInput(INPUT);
   else errorMsg(INPUT);
+
+  run();
 };
 
 let questions = [
