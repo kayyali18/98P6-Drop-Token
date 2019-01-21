@@ -13,16 +13,19 @@ let newGame = true;
  */
 
 const init = () => {
-  if (newGame) console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+  if (newGame) {
+    console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+    console.log(chalk.green("\n\n-------- CONTROLS ----------"));
+    console.log(chalk.green(`\nPUT [column]: Puts a piece to the column`));
+    console.log(
+      chalk.green(`\nGET: List of columns that have been succesfully PUT to`)
+    );
+    console.log(
+      chalk.green(`\nBoard: Displays the current state of the board\n`)
+    );
+  }
   newGame = false;
-  console.log(chalk.green("\n\n-------- CONTROLS ----------"));
-  console.log(chalk.green(`\nPUT [column]: Puts a piece to the column`));
-  console.log(
-    chalk.green(`\nGET: List of columns that have been succesfully PUT to`)
-  );
-  console.log(
-    chalk.green(`\nBoard: Displays the current state of the board\n`)
-  );
+  console.log(chalk.green("\n\n--------------------------"));
 };
 
 /**
@@ -74,9 +77,22 @@ const handleInput = input => {
   else Board.get();
 };
 
+/**
+ * This function logs error messages
+ *
+ * @param {array} input The array containing the user input separated by space
+ *
+ */
+
 const errorMsg = input => {
   console.log(`ERROR: You entered ${input[0]}\n`);
 };
+
+/**
+ *
+ * This is the main function
+ *
+ */
 
 const run = async () => {
   // Show intro
@@ -93,34 +109,9 @@ const run = async () => {
   if (valid) handleInput(INPUT);
   else errorMsg(INPUT);
 
-  run();
+  // Run game again if still going
+  if (!Board.gameOver) run();
+  else console.log(chalk.green("EXIT --- Thanks for Playing!"));
 };
-
-let questions = [
-  {
-    type: "input",
-    name: "player1",
-    message: "Player 1 enter your name:",
-    when: function(answers) {
-      if (answers.newGame) return true;
-      return false;
-    }
-  },
-  {
-    type: "confirm",
-    name: "newGame",
-    message: "Begin new game? (Enter for yes)",
-    default: false,
-    validate: function(value) {
-      value.toLowerCase();
-      var pass = value.match(/^y$\|^yes$/i) || value.match(/^n$\|^no$/i);
-      if (pass) {
-        return true;
-      }
-
-      return false;
-    }
-  }
-];
 
 run();

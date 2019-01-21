@@ -33,3 +33,12 @@ Make sure to install dependencies by running:
 Now that your game is setup just type:
 
     npm run game
+
+### How to Play
+
+```
+    PUT [column]: Puts a piece to the column
+    GET: List of columns that have been succesfully PUT to
+    Board: Displays the current state of the board
+
+```
