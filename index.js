@@ -98,7 +98,7 @@ const run = async () => {
   // Show intro
   init();
 
-  // Take input
+  // Take input returns a promise, we resolve it
   const answers = await takeInput();
   const { INPUT } = answers;
 
@@ -113,5 +113,7 @@ const run = async () => {
   if (!Board.gameOver) run();
   else console.log(chalk.green("EXIT --- Thanks for Playing!"));
 };
+
+// Start the game
 
 run();
