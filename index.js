@@ -70,7 +70,7 @@ const checkInput = input => {
 
 const handleInput = input => {
   if (input[0] == "PUT") Board.put(input[1]);
-  if (input[0] == "BOARD") Board.display();
+  else if (input[0] == "BOARD") Board.display();
   else Board.get();
 };
 
@@ -93,6 +93,8 @@ const run = async () => {
   // Handle input
   if (valid) handleInput(INPUT);
   else errorMsg(INPUT);
+
+  run();
 };
 
 let questions = [
