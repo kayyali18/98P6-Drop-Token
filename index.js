@@ -72,6 +72,7 @@ const handleInput = input => {
   if (input[0] == "PUT") Board.put(input[1]);
   else if (input[0] == "BOARD") Board.display();
   else Board.get();
+  Board.switchPlayer();
 };
 
 const errorMsg = input => {
