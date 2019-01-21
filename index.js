@@ -26,7 +26,7 @@ const init = () => {
 };
 
 /**
- * This function asks the user to input command
+ * This function initialises inquirer's questions promise
  *
  *
  * @return {function} An inquiry promise that resolves to the answers object
