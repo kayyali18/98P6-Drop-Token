@@ -77,7 +77,6 @@ const handleInput = input => {
 
 const errorMsg = input => {
   console.log(`ERROR: You entered ${input[0]}\n`);
-  run();
 };
 
 const run = async () => {
