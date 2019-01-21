@@ -3,6 +3,91 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
+const gameBoard = require("./lib/Board");
+
+const Board = new gameBoard();
+
+/**
+ * This function greets the user
+ */
+
+const init = () => {
+  console.log(chalk.green("\nWelcome to 98P6 Drop Token"));
+  console.log(chalk.green("\n\n-------- CONTROLS ----------"));
+  console.log(chalk.green(`\nPUT [column]: Puts a piece to the column`));
+  console.log(
+    chalk.green(`\nGET: List of columns that have been succesfully PUT to`)
+  );
+  console.log(
+    chalk.green(`\nBoard: Displays the current state of the board\n`)
+  );
+};
+
+/**
+ * This function asks the user to input command
+ *
+ *
+ * @return {function} An inquiry promise that resolves to the answers object
+ */
+
+const takeInput = () => {
+  const questions = [
+    {
+      name: "INPUT",
+      type: "input",
+      message: " ",
+      filter: function(val) {
+        return val.toUpperCase().split(" ");
+      }
+    }
+  ];
+
+  return inquirer.prompt(questions);
+};
+
+/**
+ * This function validates userInput
+ *
+ * @param {array} input
+ *
+ * @return {boolean} A boolean describing input validity
+ */
+
+const checkInput = input => {
+  const validInputs = { GET: "GET", PUT: "PUT", BOARD: "BOARD" };
+  return input[0] in validInputs;
+};
+
+/**
+ * This function handles user input if valid
+ *
+ * @param {array} input The array containing the user input separated by space
+ *
+ * @return {function} An inquiry promise that resolves to the answers object
+ */
+
+const handleInput = input => {
+  if (input[0] == "PUT") Board.put(input[1]);
+  if (input[0] == "BOARD") Board.display();
+  else Board.get();
+};
+
+const run = async () => {
+  // Show intro
+  init();
+
+  // Take input
+  const answers = await takeInput();
+  const { INPUT } = answers;
+
+  // Check input
+  const valid = checkInput(INPUT);
+
+  // Handle input
+  if (valid) handleInput(INPUT);
+  else errorMsg(INPUT);
+};
+
 let questions = [
   {
     type: "input",
@@ -30,17 +115,4 @@ let questions = [
   }
 ];
 
-function ask() {
-  if (newGame) {
-    inquirer.prompt(questions).then(answers => {
-      if (answers.newGame) {
-        ask();
-      } else {
-        console.log(answers);
-        newGame = false;
-      }
-    });
-  }
-}
-
-ask();
+run();
