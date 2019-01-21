@@ -26,7 +26,7 @@ const init = () => {
 };
 
 /**
- * This function asks the user to input command
+ * This function initialises inquirer's questions promise
  *
  *
  * @return {function} An inquiry promise that resolves to the answers object
@@ -72,7 +72,6 @@ const handleInput = input => {
   if (input[0] == "PUT") Board.put(input[1]);
   else if (input[0] == "BOARD") Board.display();
   else Board.get();
-  Board.switchPlayer();
 };
 
 const errorMsg = input => {
