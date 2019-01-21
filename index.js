@@ -3,6 +3,10 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 
+const gameBoard = require("./lib/Board");
+
+const Board = new gameBoard();
+
 /**
  * This function greets the user
  */
@@ -62,17 +66,24 @@ const checkInput = input => {
  * @return {function} An inquiry promise that resolves to the answers object
  */
 
-const handleInput = input => {};
+const handleInput = input => {
+  if (input[0] == "PUT") Board.put(input[1]);
+  if (input[0] == "BOARD") Board.display();
+  else Board.get();
+};
 
 const run = async () => {
-  //show intro
+  // Show intro
   init();
-  //take input
+
+  // Take input
   const answers = await takeInput();
   const { INPUT } = answers;
-  // check input --> this function calls appropriate functions
-  console.log(INPUT);
+
+  // Check input
   const valid = checkInput(INPUT);
+
+  // Handle input
   if (valid) handleInput(INPUT);
   else errorMsg(INPUT);
 };
