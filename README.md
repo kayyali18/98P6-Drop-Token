@@ -18,11 +18,23 @@ For those new to Node, the following tutorial will help get you up to speed with
 
 It is best practice to begin by forking this repo using the `Fork` button in the top-right corner of this screen. You should then be able to use `git clone` on your terminal to copy your fork onto your local machine.
 
-    git clone https://github.com/kayyali18/98P6-Drop-Token.git
+    git clone https://github.com/[your-git-handle]/98P6-Drop-Token.git
 
 Jump into your new local copy of the 98P6 Drop Token Game:
 
     cd 98P6-Drop-Token
+
+Remove the upstream from this repo:
+
+    git remote rm destination
+
+And then add an `upstream` remote that points to your main repo:
+
+    git remote add upstream https://github.com/[your-git-handle]/98P6-Drop-Token.git
+
+Fetch the latest version of `master` from `upstream` (ie. the main repo):
+
+    git fetch upstream master
 
 Make sure to install dependencies by running:
 
@@ -33,3 +45,12 @@ Make sure to install dependencies by running:
 Now that your game is setup just type:
 
     npm run game
+
+### How to Play
+
+```
+    PUT [column]: Puts a piece to the column
+    GET: List of columns that have been succesfully PUT to
+    Board: Displays the current state of the board
+
+```
