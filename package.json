@@ -4,7 +4,7 @@
   "description": "A 2 player CLI game",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "NODE_ENV=test mocha --exit && cat pikachu.txt",
     "game": "node index.js"
   },
   "repository": {
