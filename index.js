@@ -116,3 +116,5 @@ const run = async () => {
 // Start the game
 
 run();
+
+module.exports.checkInput = checkInput;
