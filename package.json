@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/kayyali18/98P6-Drop-Token#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "inquirer": "^6.2.1"
+    "inquirer": "^6.2.1",
+    "mocha": "^5.2.0"
   }
 }
