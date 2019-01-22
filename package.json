@@ -4,7 +4,7 @@
   "description": "A 2 player CLI game",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "NODE_ENV=test mocha --exit && cat pikachu.txt",
     "game": "node index.js"
   },
   "repository": {
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/kayyali18/98P6-Drop-Token#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "inquirer": "^6.2.1"
+    "inquirer": "^6.2.1",
+    "mocha": "^5.2.0"
   }
 }
