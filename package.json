@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --exit && cat pikachu.txt",
-    "game": "node index.js"
+    "game": "node index.js",
+    "fix": "cp -f base.js ./node_modules/inquirer/lib/prompts/base.js"
   },
   "repository": {
     "type": "git",
