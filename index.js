@@ -32,7 +32,7 @@ const init = () => {
  * This function initialises inquirer's questions promise
  *
  *
- * @return {function} An inquiry promise that resolves to the answers object
+ * @return {Promise} An inquiry promise that resolves to the answers object
  */
 
 const takeInput = () => {
@@ -68,7 +68,6 @@ const checkInput = input => {
  *
  * @param {array} input The array containing the user input separated by space
  *
- * @return {function} An inquiry promise that resolves to the answers object
  */
 
 const handleInput = input => {
