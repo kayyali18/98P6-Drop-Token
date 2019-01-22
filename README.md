@@ -48,13 +48,13 @@ Now that your game is setup just type:
 
 ### Testing
 
-This project utilises unit testing. Testing is yet to cover all functionality
+This project is fully tested. We used Mocha and Chai for our unit tests.
 
 To run the tests type:
 
     npm test
 
-If all tests are passing you should see this:
+If all tests are passing you should see a surprised Pikachu!!
 
 ```
 ,@@@@@@@@@@,,@@@@@@@%  .#&@@@&&.,@@@@@@@@@@,      %@@@@@@%*   ,@@@%     .#&@@@&&.  *&@@@@&(  ,@@@@@@@%  %@@@@@,     ,@@,
