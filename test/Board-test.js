@@ -19,7 +19,7 @@ describe("Board", function() {
     assert.isObject(board);
   });
 
-  it("should have default properties", function() {
+  it("should have the correct default properties", function() {
     const mocks = {
       grid: [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
       separator: ["+--------", " 1234"],
