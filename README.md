@@ -8,9 +8,9 @@ First player to connect 4 grid spots in any direction wins.
 ### Dependencies
 
 - NodeJS 10.14.x or newer
-- Inquirer.js (Manages CLI)
-- Mocha (Testing Suite)
-- Chai (Assertion Library)
+- [Inquirer](https://www.npmjs.com/package/inquirer) (Manages CLI)
+- [Mocha](https://mochajs.org) (Testing Suite)
+- [Chai](https://www.chaijs.com) (Assertion Library)
 - See Package.json for a complete list of packages required
 
 If you are likely to need to manage multiple version of node on your local machine, we recommend version managers such as [nodenv](https://github.com/nodenv/nodenv) or [NVM](https://github.com/creationix/nvm/blob/master/README.md).
@@ -30,6 +30,12 @@ Jump into your new local copy of the 98P6 Drop Token Game:
 Make sure to install dependencies by running:
 
     npm install
+
+Because we are using [inquirer](https://www.npmjs.com/package/inquirer) for our CLI we need to override its default settings for displaying a prompt. Once dependencies are installed, run:
+
+    npm run fix
+
+Now that the issue is fixed you may drop some tokens.
 
 ### Play it
 
