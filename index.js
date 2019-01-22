@@ -89,7 +89,7 @@ const errorMsg = input => {
 
 /**
  *
- * This is the main function
+ * ----------------------   This is the main function  ---------------------------
  *
  */
 
@@ -110,7 +110,7 @@ const run = async () => {
 
   // Run game again if still going
   if (!Board.gameOver) run();
-  else console.log(chalk.green("EXIT --- Thanks for Playing!"));
+  else console.log(chalk.green("EXIT \n ------- \n Thanks for Playing!"));
 };
 
 // Start the game
