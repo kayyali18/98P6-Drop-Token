@@ -1,6 +1,7 @@
 # 98P6-Drop-Token
 
-A simple grid game that allows 2 players to compete against each other
+A simple game played on a 4 x 4 grid that allows 2 players to compete against each other.
+First player to connect 4 grid spots in any direction wins.
 
 ## Get Started
 
